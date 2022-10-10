@@ -78,7 +78,7 @@ You will have to modify the code to point at your trained models.
 
 ![Brainstorm](http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=451037&type=card)
 
-
+### 使用时解压ext压缩包中的文件即可
 ### 实验记录
 - 如果不需要evaluate_segmentaters去计算loss 删除ext/neuron/neurite文件夹即可 因为有大量重复
 
