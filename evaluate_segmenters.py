@@ -31,7 +31,7 @@ eval_data_params = main.named_data_params[ds_key]
 eval_data_params['load_vols'] = True
 
 eval_ds = mri_loader.MRIDataset(eval_data_params)
-_ = eval_ds.load_dataset()
+_ = eval_ds.load_dataset()  # _ 可作为占位符变量 保证代码正确运行 但这个变量无关紧要 可以不赋予具体的名称
 
 for f in eval_ds.files_labeled_valid:
     print(f)
@@ -45,6 +45,7 @@ K.tensorflow_backend.set_session(tf.Session(config=config))
 
 # load trained segmenters
 model_files = [
+    'trained_models/spatial_transform_model.h5'
     ### PUT YOUR TRAINED .h5 MODEL FILES HERE ####
 ]
 

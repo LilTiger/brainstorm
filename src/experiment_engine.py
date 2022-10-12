@@ -144,10 +144,9 @@ def train_batch_by_batch(
     n_batch_per_epoch_train = min(max_n_batch_per_epoch, int(np.ceil(exp.get_n_train() / float(batch_size))))
     print(exp.get_n_train())
     max_printed_examples = 8
-    print_every = 100000  # set this to be really high at  first
+    print_every = 100000  # set this to be really high at first
     print_atleast_every = 100
     print_atmost = max(1, max_printed_examples / batch_size)
-
 
     # lets say we want 1 new result image every 1 minute
     print_every_n_seconds = run_args.print_every
@@ -210,7 +209,7 @@ def train_batch_by_batch(
                     results_im)
                 printed_count += 1
 
-        if batch_count >= 10:
+        # if batch_count >= 10:
             file_stdout_logger.debug('Printing every {} batches, '
                                      'saving every {} and {} epochs, '
                                      'testing every {}'.format(print_every,

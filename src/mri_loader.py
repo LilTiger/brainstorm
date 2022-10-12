@@ -169,7 +169,7 @@ def load_vol_and_seg(vol_file,
             print('Could not find corresponding seg file for {}!'.format(vol_file))
             return None
 
-        seg_data = np.load(seg_vol_file)['vol_data']
+        seg_data = np.load(seg_vol_file)['seg_data']
     else:
         seg_data = None
 
