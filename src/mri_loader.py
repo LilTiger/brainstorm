@@ -104,7 +104,6 @@ def load_dataset_files(
     if load_n is None:
         load_n = len(vol_files)
 
-    # 根据数据集中图片大小更改vol_size
     vol_size = (155, 240, 240)
     vols = np.zeros((load_n,) + vol_size + (1,), dtype=np.float32)
 
@@ -200,7 +199,6 @@ def load_vol_and_seg(vol_file,
     return img_data, seg_data, contours
 
 
-
 class MRIDataset(object):
     def __init__(self, params, logger=None, profiler_logger=None):
         # default parameter settings that might not be in keys
@@ -215,7 +213,6 @@ class MRIDataset(object):
         self.logger = logger
 
         self.create_display_name()
-
 
     def create_display_name(self):
         '''
@@ -232,7 +229,6 @@ class MRIDataset(object):
         self.display_name += '_{}ul'.format(self.params['n_unlabeled'])
 
         return self.display_name
-
 
     def load_dataset(self, load_n=None, load_segs=True,
                      load_source_segs=True,

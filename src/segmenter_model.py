@@ -113,9 +113,9 @@ class SegmenterTrainer(experiment_base.Experiment):
 
         self.n_aug = None  # do augmentation through the generator by default
 
-        self.aug_tm = False # flow and appearance transform models
-        self.aug_sas = False # flow model for single-atlas segmentation
-        self.aug_rand = False # random flow and multiplicative intensity
+        self.aug_tm = False  # flow and appearance transform models
+        self.aug_sas = False  # flow model for single-atlas segmentation
+        self.aug_rand = False  # random flow and multiplicative intensity
 
         if 'aug_rand' in data_params.keys() and data_params['aug_rand']:
             self.aug_rand = True
@@ -191,7 +191,7 @@ class SegmenterTrainer(experiment_base.Experiment):
             self.segs_labeled_train = self.segs_labeled_train[..., np.newaxis]
             self.segs_labeled_valid = self.segs_labeled_valid[..., np.newaxis]
 
-        # assert that none of the validation examples are also in the trainig set
+        # assert that none of the validation examples are also in the training set
         assert not np.any([id_lv in self.ids_labeled_train for id_lv in self.ids_labeled_valid])
 
         self.n_labels = len(self.label_mapping)

@@ -41,7 +41,7 @@ This repo does not include any pre-trained models. You may train your own
 spatial and appearance transform models by specifying the GPU ID, dataset name, and the model type.
 
 ```
-python main.py trans --gpu 0 --data mri-100unlabeled --model flow-fwd --coupled
+python main.py trans --gpu 0 --data mri-100unlabeled --model flow-fwd
 python main.py trans --gpu 0 --data mri-100unlabeled --model flow-bck
 python main.py trans --gpu 0 --data mri-100unlabeled --model color-unet
 ```
@@ -57,14 +57,14 @@ favorite model architecture, and to adjust the model parameters to suit your dat
 ## Training a segmentation network
 You may train a segmentation model by specifying the GPU ID and dataset name.
 ```
-python main.py seg --gpu 0 --data mri-100unlabeled
+python main.py seg --gpu 0 --data mri-100unlabeled --aug_tm
 ```
 Again, results will be placed under `experiments/`. 
 
 
 You can use additional flags:
 * `--aug_rand` will apply random augmentation to each training example consisting of a random smooth deformation and a random global multiplicative intensity factor.
-* `--aug_sas` will pseudo-label any unlabeled examples in the training set using the specified spatial registration model.
+* `--aug_sas` will  any unlabeled examples in the training set using the specified spatial registration model.
 * `--aug_tm` will synthesize training examples using our method.
 
 If you wish to use `--aug_sas` or `--aug_tm`, it is important to specify the spatial and appearance transform models to use in
@@ -74,10 +74,14 @@ If you wish to use `--aug_sas` or `--aug_tm`, it is important to specify the spa
 To evaluate trained segmenters, look at the code in `evaluate_segmenters.py`.
 You will have to modify the code to point at your trained models.
 
-<sub>Repo name inspired by Magic: The Gathering.</sub>
-
-![Brainstorm](http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=451037&type=card)
 
 ### 实验记录
 - 如果不需要evaluate_segmentaters去计算loss 删除ext/neuron/neurite文件夹即可 因为有大量重复
+#### 更换新数据集时 需要对应数据集的shape更改参数 
+具体调整位置为：
+- main.py - named_data_params 共三处
+- mri_load.py - vol_size 共一处
+- transform_model.py - vol_size 共三处
+
+更换新数据集时 data/train中需要保证有名为atlas_vol.npz和atlas_seg.npz作为one-shot的学习样本
 

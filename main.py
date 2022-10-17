@@ -96,7 +96,6 @@ if __name__ == '__main__':
     ap.add_argument('-m', '--model', type=str, help='model architecture', default=None)
     ap.add_argument('--epoch', nargs='?', help='epoch number or "latest"', default=None)
 
-
     ap.add_argument('--lr', nargs='?', type=float, help='Learning rate', default=1e-4)
     ap.add_argument('--debug', action='store_true', help='Flag for debug mode (saves more often, only runs for 10 epochs)',
                     default=False)
@@ -152,7 +151,6 @@ if __name__ == '__main__':
         with open(os.path.join(args.from_dir, 'data_params.json'), 'r') as f:
             fromdir_data_params = json.load(f)
 
-
     for ei, exp_type in enumerate(args.exp_type):
         if exp_type.lower() == 'trans':
             '''''''''''''''''''''''''''
@@ -185,7 +183,7 @@ if __name__ == '__main__':
                 },
                 'flow-bidir': {
                     'model_arch': 'flow_bidir_separate',
-                    'save_every' : 10,
+                    'save_every': 10,
                     'test_every': 25,
                     'transform_reg_flow': 'grad_l2', 'transform_reg_lambda_flow': 1,
                     'recon_loss_Iw': 'cc_vm',
@@ -240,7 +238,6 @@ if __name__ == '__main__':
             if 'test_every' in arch_params.keys():
                 test_every_n_epochs = arch_params['test_every']
 
-
             exp = transform_models.TransformModelTrainer(data_params, arch_params)
 
             end_epoch = arch_params['end_epoch']
@@ -255,7 +252,7 @@ if __name__ == '__main__':
                     'n_convs_per_stage': 2,
                     'n_seg_dims': 2, # segment slices (2D)
                     'n_aug_dims': 3, # augment each volume (3D)
-                    'end_epoch': 100000,
+                    'end_epoch': 100,
                     'pretrain_l2': 500,
                     'warpoh': False,
                     'tm_flow_model': ( # transform model (spatial) for augmentation

@@ -308,7 +308,7 @@ class TransformModelTrainer(experiment_base.Experiment):
             nf_dec = [32, 32, 32, 32, 32, 16, 16]
 
             self.transform_model = networks.cvpr2018_net(
-                vol_size=(160, 192, 224),
+                vol_size=(155, 240, 240),
                 enc_nf=nf_enc,
                 dec_nf=nf_dec,
                 indexing='xy',
@@ -322,7 +322,7 @@ class TransformModelTrainer(experiment_base.Experiment):
             nf_dec = [32, 32, 32, 32, 32, 16, 16]
 
             self.flow_bck_model = networks.cvpr2018_net(
-                vol_size=(160, 192, 224),
+                vol_size=(155, 240, 240),
                 enc_nf=nf_enc,
                 dec_nf=nf_dec,
                 indexing='xy',
@@ -332,7 +332,7 @@ class TransformModelTrainer(experiment_base.Experiment):
 
             # vm2 model
             self.flow_fwd_model = networks.cvpr2018_net(
-                vol_size=(160, 192, 224),
+                vol_size=(155, 240, 240),
                 enc_nf=nf_enc,
                 dec_nf=nf_dec,
                 indexing='xy',

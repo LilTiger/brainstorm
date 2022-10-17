@@ -45,7 +45,7 @@ K.tensorflow_backend.set_session(tf.Session(config=config))
 
 # load trained segmenters
 model_files = [
-    'trained_models/spatial_transform_model.h5'
+
     ### PUT YOUR TRAINED .h5 MODEL FILES HERE ####
 ]
 

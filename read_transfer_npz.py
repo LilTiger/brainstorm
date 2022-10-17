@@ -5,18 +5,18 @@
 # # 以下分别为读取nii和npz格式病理图片的方式
 # # 读取nii格式病理图片
 # import torchio as tio
-# t1_path = 'BraTS20_Training_001/BraTS20_Training_001_seg.nii'
+# t1_path = 'MICCAI_BraTS2020_TrainingData/BraTS20_Training_002/BraTS20_Training_002_t1ce.nii'
 # t1_img = tio.ScalarImage(t1_path)
 # t1_img.plot()
 # t2 = np.asarray(t1_img)  # 将图片转化为ndarray对象
 # # 读取npz格式病理图片（从数组转化为图片）
-# data = np.load('data/train/BraTS20_Training_001_t1_seg.npz')
-# img = Image.fromarray(data['seg_data'][1])  # fromarray方法从矩阵中读取图片
-# # img.show()
-# plt.imshow(data['seg_data'][1])  # imshow方法从矩阵中读取图片
+# data = np.load('data/train/BraTS20_Training_002_t1_seg.npz')
+# img = Image.fromarray(data['seg_data'][129])  # fromarray方法从矩阵中读取图片
+# img.show()
+# plt.imshow(data['seg_data'][66])
 # # plt.show()
 
-
+#
 # 批量转化nii为npz格式
 # 此方法可以直接读取文件夹中的所有flair t1 t1_ce t2 seg等nii文件然后直接转换为npz文件
 import os
@@ -24,8 +24,9 @@ import sys
 import numpy as np
 import SimpleITK as sitk
 
-NII_DIR = 'BraTS20_Training_001'
-outPutDir = 'npz_file/'
+NII_DIR = 'MICCAI_BraTS2020_TrainingData/BraTS20_Training_002'
+outPutDir = 'data/train/'
+
 
 def get_filelist(dir, Filelist):
     if os.path.isdir(dir):
@@ -44,7 +45,7 @@ for e in nii_list:
     RefimgArray = sitk.GetArrayFromImage(Refimg)
     fileName = e.split('\\')[-1].replace('nii', 'npz')
     filename = fileName.split('.')[0]
-    short = fileName.split('_')[3].split('.')[0]
+    short = filename.split('_')[3]
     if short != 'seg':
         np.savez(outPutDir + filename + '_vol.npz', vol_data=RefimgArray)
     else:
