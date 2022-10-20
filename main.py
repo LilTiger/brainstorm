@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import sys
+import traceback
 
 import numpy as np
 
@@ -199,7 +200,7 @@ if __name__ == '__main__':
                     'transform_reg_color': 'grad-seg-l2', 'transform_reg_lambda_color': 1,
                     'color_transform_in_tgt_space': False,
                     'do_include_aux_input': False,
-                    'recon_loss_I': 'l2-tgt', # compute reconstruction loss (L2) in target space
+                    'recon_loss_I': 'l2-tgt',  # compute reconstruction loss (L2) in target space
                     'recon_loss_wt': 50,
                     'end_epoch': 20,
                     'use_aux_reg': 'contours',
@@ -250,20 +251,20 @@ if __name__ == '__main__':
                 'default': {
                     'nf_enc': [32, 32, 64, 64, 128, 128],
                     'n_convs_per_stage': 2,
-                    'n_seg_dims': 2, # segment slices (2D)
-                    'n_aug_dims': 3, # augment each volume (3D)
+                    'n_seg_dims': 2,  # segment slices (2D)
+                    'n_aug_dims': 3,  # augment each volume (3D)
                     'end_epoch': 100,
                     'pretrain_l2': 500,
                     'warpoh': False,
-                    'tm_flow_model': ( # transform model (spatial) for augmentation
+                    'tm_flow_model': (  # transform model (spatial) for augmentation
                         'trained_models/'
                         'spatial_transform_model.h5'
                     ),
-                    'tm_flow_bck_model': ( # transform model (spatial) for augmentation
+                    'tm_flow_bck_model': (  # transform model (spatial) for augmentation
                         'trained_models/'
                         'spatial_transform_model_bck.h5'
                     ),
-                    'tm_color_model': ( # transform model (appearance) for augmentation
+                    'tm_color_model': (  # transform model (appearance) for augmentation
                         'trained_models/'
                         'appearance_transform_model.h5'
                     ),
