@@ -86,3 +86,15 @@ You will have to modify the code to point at your trained models.
 更换新数据集时 data/train中需要保证有名为atlas_vol.npz和atlas_seg.npz作为one-shot的学习样本
 BrainTS数据集中的atlas来自于BraTS20_Training_001_t1
 
+#### 初次使用时 需要执行的安装指令
+```
+conda install tensorflow-gpu==1.13.1
+conda install keras-gpu==2.2.4
+pip install pillow
+pip install matplotlib
+pip install sklearn
+pip install nibabel
+conda install pydot
+conda install graphviz
+```
+
