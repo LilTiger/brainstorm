@@ -84,4 +84,5 @@ You will have to modify the code to point at your trained models.
 - transform_model.py - vol_size 共三处
 
 更换新数据集时 data/train中需要保证有名为atlas_vol.npz和atlas_seg.npz作为one-shot的学习样本
+BrainTS数据集中的atlas来自于BraTS20_Training_001_t1
 

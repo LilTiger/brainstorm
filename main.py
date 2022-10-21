@@ -52,7 +52,7 @@ named_data_params = {
     'mri-100unlabeled': {
         'use_labels': voxelmorph_labels,
         'use_atlas_as_source': False,
-        'use_subjects_as_source': ['atlas'], #['OASIS_OAS1_0327_MR1_mri_talairach_orig'] was used in the paper
+        'use_subjects_as_source': ['atlas'],  # ['OASIS_OAS1_0327_MR1_mri_talairach_orig'] was used in the paper
         'do_load_test': False,
         'img_shape': (155, 240, 240, 1),
         'n_shot': 0,
@@ -91,7 +91,7 @@ if __name__ == '__main__':
     # common params
     ap.add_argument('exp_type', nargs='*', type=str, help='trans (transform model), fss (few-shot segmentation)')
     ap.add_argument('-g', '--gpu', nargs='*', type=int, help='gpu id(s) to use', default=1)
-    ap.add_argument('-b', '--batch_size', nargs='?', type=int, default=16)
+    ap.add_argument('-b', '--batch_size', nargs='?', type=int, default=4)
     ap.add_argument('-d', '--data', nargs='?', type=str, help='name of dataset', default=None)
 
     ap.add_argument('-m', '--model', type=str, help='model architecture', default=None)
@@ -135,7 +135,7 @@ if __name__ == '__main__':
                     help='Number of new augmented examples to add', dest='data_n_aug')
 
     args = ap.parse_args()
-    experiment_engine.configure_gpus(args.gpu)
+    # experiment_engine.configure_gpus(args.gpu)
 
     if not args.debug:
         end_epoch = 20000
