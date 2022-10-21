@@ -91,7 +91,7 @@ if __name__ == '__main__':
     # common params
     ap.add_argument('exp_type', nargs='*', type=str, help='trans (transform model), fss (few-shot segmentation)')
     ap.add_argument('-g', '--gpu', nargs='*', type=int, help='gpu id(s) to use', default=1)
-    ap.add_argument('-b', '--batch_size', nargs='?', type=int, default=4)
+    ap.add_argument('-b', '--batch_size', nargs='?', type=int, default=8)
     ap.add_argument('-d', '--data', nargs='?', type=str, help='name of dataset', default=None)
 
     ap.add_argument('-m', '--model', type=str, help='model architecture', default=None)

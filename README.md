@@ -90,11 +90,11 @@ BrainTS数据集中的atlas来自于BraTS20_Training_001_t1
 ```
 conda install tensorflow-gpu==1.13.1
 conda install keras-gpu==2.2.4
+conda install pydot
+conda install graphviz
 pip install pillow
 pip install matplotlib
 pip install sklearn
 pip install nibabel
-conda install pydot
-conda install graphviz
 ```
 
