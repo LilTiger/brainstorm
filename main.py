@@ -1,3 +1,6 @@
+# import os
+# os.environ["CUDA_VISIBLE_DEVICE"] = '-1'
+
 import argparse
 import json
 import os
@@ -256,7 +259,7 @@ if __name__ == '__main__':
                     'end_epoch': 100,
                     'pretrain_l2': 500,
                     'warpoh': False,
-                    'tm_flow_model': (  # transform model (spatial) for augmentation
+                   'tm_flow_model': (  # transform model (spatial) for augmentation
                         'trained_models/'
                         'spatial_transform_model.h5'
                     ),
