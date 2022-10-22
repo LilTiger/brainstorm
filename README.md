@@ -97,4 +97,4 @@ pip install matplotlib
 pip install sklearn
 pip install nibabel
 ```
-使用conda 可以安装所需的依赖安装包 比如*conda install tensorflow-gpu*会安装对应版本的cuda
+使用conda 可以安装所需的依赖安装包 比如 *conda install tensorflow-gpu* 会安装对应版本的cuda
