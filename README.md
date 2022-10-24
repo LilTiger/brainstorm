@@ -97,4 +97,4 @@ pip install pillow==7.0.0
 pip install matplotlib==3.0.3
 pip install nibabel
 ```
-
+使用conda 可以安装所需的依赖安装包 比如 *conda install tensorflow-gpu* 会安装对应版本的cuda
