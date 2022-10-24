@@ -92,9 +92,9 @@ conda install tensorflow-gpu==1.13.1
 conda install keras-gpu==2.2.4
 conda install pydot
 conda install graphviz
-pip install pillow
-pip install matplotlib
-pip install sklearn
+conda install sklearn
+pip install pillow==7.0.0
+pip install matplotlib==3.0.3
 pip install nibabel
 ```
 

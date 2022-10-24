@@ -139,18 +139,16 @@ class SegmenterTrainer(experiment_base.Experiment):
         # come up with a short name for our flow and color models so we can put them in this model name
         if self.arch_params['tm_flow_model'] is not None and self.arch_params['tm_color_model'] is not None \
                 and self.aug_tm:
-            if 'epoch' in self.arch_params['tm_flow_model']:
-                flow_epoch = re.search('(?<=_epoch)[0-9]*', self.arch_params['tm_flow_model']).group(0)
-            else:
-                flow_epoch = int(int(re.search('(?<=_iter)[0-9]*', self.arch_params['tm_flow_model']).group(0)) / 100)
-            color_epoch = re.search('(?<=_epoch)[0-9]*', self.arch_params['tm_color_model']).group(0)
+            # if 'epoch' in self.arch_params['tm_flow_model']:
+            #     flow_epoch = re.search('(?<=_epoch)[0-9]*', self.arch_params['tm_flow_model']).group(0)
+            # else:
+            #     flow_epoch = int(int(re.search('(?<=_iter)[0-9]*', self.arch_params['tm_flow_model']).group(0)) / 100)
+            # color_epoch = re.search('(?<=_epoch)[0-9]*', self.arch_params['tm_color_model']).group(0)
 
             # only include the color model in the name if we are doing both flow and color aug
-            self.aug_model_name = 'tmflow-e{}-colore{}'.format(
-                flow_epoch, color_epoch)
+            self.aug_model_name = 'augmented_pretrained'
         elif self.arch_params['tm_flow_model'] is not None:
-            self.aug_model_name = 'tmflow-{}'.format(
-                os.path.basename(self.arch_params['tm_flow_model'].split('/models/')[0]))
+            self.aug_model_name = 'augmented_pretrained'
 
         # do augmentation through generator, or pre-augment training set
         if 'aug_in_gen' not in data_params.keys():
