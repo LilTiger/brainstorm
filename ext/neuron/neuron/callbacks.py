@@ -23,9 +23,9 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 
-import pytools.timer as timer
-import pynd.ndutils as nd
-import pynd.segutils as su
+import pystrum.pytools.timer as timer
+import pystrum.pynd.ndutils as nd
+import pystrum.pynd.segutils as su
 
 # the neuron folder should be on the path
 import neuron as ne

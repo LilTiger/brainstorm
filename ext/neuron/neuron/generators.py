@@ -13,9 +13,9 @@ from tensorflow.python.keras.utils import np_utils
 from tensorflow.python.keras.models import Model
 
 # local packages
-import pynd.ndutils as nd
-import pytools.patchlib as pl
-import pytools.timer as timer
+import pystrum.pynd.ndutils as nd
+import pystrum.pytools.patchlib as pl
+import pystrum.pytools.timer as timer
 
 # reload patchlib (it's often updated right now...)
 from imp import reload

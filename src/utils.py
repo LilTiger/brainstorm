@@ -13,8 +13,8 @@ import textwrap
 
 from src import networks
 
-import medipy.metrics as medipy_metrics
-import pynd.segutils as pynd_segutils
+import pystrum.medipy.metrics as medipy_metrics
+import pystrum.pynd.segutils as pynd_segutils
 
 #############################
 # File utils

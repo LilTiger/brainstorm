@@ -7,7 +7,7 @@ import numpy as np
 
 from src import utils
 
-import pynd.segutils as pynd_segutils
+import pystrum.pynd.segutils as pynd_segutils
 
 voxelmorph_labels = [0,
                      16,  # brain stem
