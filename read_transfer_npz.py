@@ -31,7 +31,7 @@ import skimage.transform as skTrans
 import nibabel as nib
 
 NII_DIR = 'MICCAI_BraTS2020_TrainingData/BraTS20_Training_001'
-outPutDir = 'data/validation/'
+outPutDir = 'npz_file/'
 
 
 def get_filelist(dir, Filelist):
@@ -60,7 +60,7 @@ for e in nii_list:
     else:
         # 为每个模态的切片单独创建对应的_seg.npz标签【因四个模态的标签分割标签一致】
         for file in nii_list:
-            # 因_seg.npz文件需要对应每个模态生成 故单独的_seg.nii暂无意义无需生成.npz文件
+            # 因_seg.npz文件需要对应每个模态生成 故单独的_seg.nii暂无意义 无需生成.npz文件
             if not file.endswith('_seg.nii'):
                 file_name = file.split('\\')[-1].replace('nii', 'npz')
                 file_name = file_name.split('.')[0]
